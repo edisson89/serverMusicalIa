@@ -1,11 +1,7 @@
-const aws = require("aws-sdk")
 const {
-    DynamoDBDocumentClient,
-    GetCommand,
-    PutCommand
-} = require('@aws-sdk/lib-dynamodb')
-const client = new DynamoDBClient()
-const dynamoDbClient = DynamoDBDocumentClient.from(client)
+    aws
+} = require("aws-sdk/client-dynamodb")
+
 const {
     v4
 } = require("uuid")
@@ -21,12 +17,12 @@ async function addNotaControllers(titulo, descripcion) {
         titulo,
         descripcion,
     }
-    const result = await dynamoDbClient.send(new PutCommand({
+    const result = await dynamodb.put({
         TableName: USERS_TABLE,
         Item: {
             nota
         }
-    })).promise()
+    }).promise()
     return result
 
 }
