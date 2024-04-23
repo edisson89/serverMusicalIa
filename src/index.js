@@ -42,7 +42,7 @@ app.get("/users/:userId", async function (req, res) {
   }
 });
 
-app.post("/users",addNota);
+app.post("/users", addNota);
 
 app.use((req, res, next) => {
   return res.status(404).json({
