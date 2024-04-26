@@ -25,6 +25,7 @@ provider:
     USERS_TABLE: ${self:custom.tableName}
 plugins:
   - serverless-offline
+      
 
 functions:
   api:
@@ -40,8 +41,16 @@ resources:
         AttributeDefinitions:
           - AttributeName: userId
             AttributeType: S
+          - AttributeName: titulo
+            AttributeType: S
+          - AttributeName: descripcion
+            AttributeType: S
+
         KeySchema:
           - AttributeName: userId
             KeyType: HASH
+          - AttributeName: titulo
+            KeyType: HASH
+         
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:custom.tableName}

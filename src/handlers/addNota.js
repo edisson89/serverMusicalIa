@@ -8,7 +8,7 @@ const addNota = async (req, res) => {
         } = req.body
 
         const result = await addNotaControllers(titulo, descripcion);
-        console.log('lpsao',result)
+        
         res.status(200).json({result})
     } catch (error) {
         res.status(404).json({error: error.message});
