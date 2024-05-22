@@ -1,12 +1,12 @@
+require("dotenv").config();
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const {
   DynamoDBDocumentClient,
   GetCommand,
-  PutCommand,
+ 
 } = require("@aws-sdk/lib-dynamodb");
 const express = require("express");
 const serverless = require("serverless-http");
-const {v4} = require("uuid");
 const addNota = require("./handlers/addNota");
 
 
